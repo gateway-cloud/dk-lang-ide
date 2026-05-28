@@ -1,0 +1,122 @@
+{
+  "VERSION": {
+    "prefix": "version",
+    "body": "VERSION \"${1:1.0.0}\" ;",
+    "description": "鐗堟湰澹版槑"
+  },
+  "VAR": {
+    "prefix": "var",
+    "body": "VAR ${1:name} | ${2|int,real,str,bool,nil|} ;",
+    "description": "鍙橀噺瀹氫箟"
+  },
+  "SET": {
+    "prefix": "set",
+    "body": "SET ${1:name} | ${2:value} ;",
+    "description": "璧嬪€?
+  },
+  "IF": {
+    "prefix": "if",
+    "body": "IF ${1|gt,lt,eq,ne,ge,le|} | ${2:left} | ${3:right} | {\n    ${4}\n} ;",
+    "description": "鏉′欢鍒ゆ柇"
+  },
+  "IFELSE": {
+    "prefix": "ifelse",
+    "body": "IF ${1|gt,lt,eq,ne,ge,le|} | ${2:left} | ${3:right} | {\n    ${4}\n} | {\n    ${5}\n} ;",
+    "description": "鏉′欢鍒ゆ柇(甯lse)"
+  },
+  "LOOP": {
+    "prefix": "loop",
+    "body": "LOOP ${1:i} | ${2:1} | ${3:10} | ${4:1} | {\n    ${5}\n} ;",
+    "description": "璁℃暟寰幆"
+  },
+  "WHILE": {
+    "prefix": "while",
+    "body": "WHILE ${1|gt,lt,eq,ne,ge,le|} | ${2:left} | ${3:right} | {\n    ${4}\n} ;",
+    "description": "鏉′欢寰幆"
+  },
+  "SWITCH": {
+    "prefix": "switch",
+    "body": "SWITCH ${1:expr} | {\n    CASE ${2:value} | { ${3} }\n    DEFAULT | { ${4} }\n} ;",
+    "description": "澶氬垎鏀?
+  },
+  "FUNC": {
+    "prefix": "func",
+    "body": "FUNC ${1:name} | ${2:param} | ${3|int,real,str,bool,nil|} | ${4|int,real,str,bool,nil|} | {\n    ${5}\n    RET ${6:value} ;\n} ;",
+    "description": "鍑芥暟瀹氫箟"
+  },
+  "FUNC0": {
+    "prefix": "func0",
+    "body": "FUNC ${1:name} | ${2|int,real,str,bool,nil|} | {\n    ${3}\n} ;",
+    "description": "鏃犲弬鍑芥暟"
+  },
+  "CALL": {
+    "prefix": "call",
+    "body": "CALL ${1:funcName} | ${2:args} ;",
+    "description": "鍑芥暟璋冪敤"
+  },
+  "RET": {
+    "prefix": "ret",
+    "body": "RET ${1:value} ;",
+    "description": "杩斿洖鍊?
+  },
+  "PRINT": {
+    "prefix": "print",
+    "body": "PRINT ${1:value} ;",
+    "description": "杈撳嚭"
+  },
+  "ARR": {
+    "prefix": "arr",
+    "body": "ARR ${1:name} | ${2|int,real,str,bool|} | ${3:elements} ;",
+    "description": "鏁扮粍瀹氫箟"
+  },
+  "MAP": {
+    "prefix": "mapvar",
+    "body": "VAR ${1:name} | map[${2:str},${3:int}] ;",
+    "description": "Map鍙橀噺"
+  },
+  "TRY": {
+    "prefix": "try",
+    "body": "TRY | {\n    ${1}\n} CATCH \"${2:Error}\" | {\n    ${3}\n} ;",
+    "description": "寮傚父澶勭悊"
+  },
+  "STR_JOIN": {
+    "prefix": "strjoin",
+    "body": "STR_JOIN ${1:result} | \"${2:sep}\" | ${3:parts} ;",
+    "description": "瀛楃涓叉嫾鎺?
+  },
+  "SERVER": {
+    "prefix": "server",
+    "body": "SERVER \"${1:0.0.0.0}\" | ${2:8080} | {\n    STATIC \"/${3:static}\" | \"./${4:static}\" ;\n    ROUTE \"${5|GET,POST,PUT,DELETE|}\" | \"${6:/api/path}\" | ${7:handler} ;\n} ;",
+    "description": "HTTP鏈嶅姟鍣?
+  },
+  "MAIN": {
+    "prefix": "main",
+    "body": "FUNC main | str | {\n    ${1}\n    RET \"OK\" ;\n} ;\n\nCALL main ;",
+    "description": "涓诲嚱鏁版ā鏉?
+  },
+  "LOG": {
+    "prefix": "log",
+    "body": "LOG \"${1|info,warn,error,debug|}\" | ${2:message} ;",
+    "description": "鏃ュ織"
+  },
+  "FILE_READ": {
+    "prefix": "fileread",
+    "body": "FILE_READ ${1:var} | \"${2:path}\" ;",
+    "description": "鏂囦欢璇诲彇"
+  },
+  "FILE_WRITE": {
+    "prefix": "filewrite",
+    "body": "FILE_WRITE \"${1:path}\" | ${2:content} ;",
+    "description": "鏂囦欢鍐欏叆"
+  },
+  "TIME": {
+    "prefix": "time",
+    "body": "TIME ${1:var} | \"${2|HH:mm:ss,YYYY-MM-DD HH:mm:ss,YYYY-MM-DD,unix|}\" ;",
+    "description": "鑾峰彇鏃堕棿"
+  },
+  "PERMIT": {
+    "prefix": "permit",
+    "body": "PERMIT \"${1|file_read,file_write,ai_call,network,db_read,db_write|}\" ;",
+    "description": "鏉冮檺澹版槑"
+  }
+}
