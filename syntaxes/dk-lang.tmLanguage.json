@@ -1,0 +1,202 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "DK-Lang",
+  "scopeName": "source.dk",
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#multiline-strings"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#types"
+    },
+    {
+      "include": "#operators"
+    },
+    {
+      "include": "#builtins"
+    },
+    {
+      "include": "#server-block"
+    }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.dk",
+          "match": "//.*$"
+        },
+        {
+          "name": "comment.block.dk",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "multiline-strings": {
+      "name": "string.quoted.backtick.dk",
+      "begin": "`",
+      "end": "`",
+      "patterns": [
+        {
+          "name": "constant.character.escape.dk",
+          "match": "\\\\."
+        }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.dk",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.dk",
+          "match": "\\\\."
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.float.dk",
+          "match": "\\b\\d+\\.\\d+\\b"
+        },
+        {
+          "name": "constant.numeric.integer.dk",
+          "match": "\\b\\d+\\b"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.flow.dk",
+          "match": "\\b(IF|ELSE|LOOP|WHILE|SWITCH|CASE|DEFAULT|BREAK|NEXT|RET|TRY|CATCH|THROW)\\b"
+        },
+        {
+          "name": "keyword.control.declaration.dk",
+          "match": "\\b(VAR|SET|CONST|GLOBAL|LOCAL|FUNC|CALL|ARR|MAP|TYPE|CLASS|NEW|EXTENDS|PROP|METHOD)\\b"
+        },
+        {
+          "name": "keyword.control.server.dk",
+          "match": "\\b(SERVER|ROUTE|MIDDLEWARE|STATIC)\\b"
+        },
+        {
+          "name": "keyword.control.module.dk",
+          "match": "\\b(USE|FROM|IMPORT|AS|ISA|VERSION|PERMIT|SANDBOX|AUDIT|EXIT)\\b"
+        },
+        {
+          "name": "keyword.control.io.dk",
+          "match": "\\b(FILE_READ|FILE_WRITE|FILE_EXIST|PRINT|LOG|TRACE|TIME|RAND|B64ENC|B64DEC)\\b"
+        },
+        {
+          "name": "keyword.control.network.dk",
+          "match": "\\b(HTTP_GET|HTTP_POST|WS_CONN|WS_SEND|WS_RECV|URL_ENC|URL_DEC)\\b"
+        },
+        {
+          "name": "keyword.control.db.dk",
+          "match": "\\b(DB_CONN|DB_QUERY|DB_INSERT|DB_UPDATE|DB_DELETE)\\b"
+        },
+        {
+          "name": "keyword.control.concurrency.dk",
+          "match": "\\b(ASYNC|AWAIT|THREAD|JOIN|KILL|WAIT|CRON)\\b"
+        },
+        {
+          "name": "keyword.control.system.dk",
+          "match": "\\b(EXEC|ENV_GET|ENV_SET)\\b"
+        },
+        {
+          "name": "keyword.control.ai.dk",
+          "match": "\\b(AI_ASK|AI_EXTRACT|AI_SUMMARIZE|AI_CLASSIFY|AI_TRANSLATE|AI_IMAGE|CTX|PROMPT)\\b"
+        },
+        {
+          "name": "keyword.control.meta.dk",
+          "match": "\\b(MACRO|EVAL|ALIAS)\\b"
+        },
+        {
+          "name": "keyword.operator.logical.dk",
+          "match": "\\b(AND|OR|NOT)\\b"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.arithmetic.dk",
+          "match": "\\b(add|sub|mul|div|mod)\\b"
+        },
+        {
+          "name": "keyword.operator.comparison.dk",
+          "match": "\\b(gt|lt|eq|ne|ge|le)\\b"
+        },
+        {
+          "name": "keyword.operator.string.dk",
+          "match": "\\b(STR_JOIN|STR_CUT|STR_LEN|STR_FIND|STR_REPL|ARR_LEN)\\b"
+        },
+        {
+          "name": "keyword.operator.container.dk",
+          "match": "\\b(GET|PUSH|POP|SET_ADD|SET_HAS|MAP_SET|MAP_GET|MAP_DEL|MAP_HAS)\\b"
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "name": "storage.type.primitive.dk",
+          "match": "\\b(int|real|str|bool|nil)\\b"
+        },
+        {
+          "name": "storage.type.composite.dk",
+          "match": "\\b(arr|set|map)\\b"
+        },
+        {
+          "name": "constant.language.boolean.dk",
+          "match": "\\b(true|false)\\b"
+        }
+      ]
+    },
+    "builtins": {
+      "patterns": [
+        {
+          "name": "support.function.builtin.dk",
+          "match": "\\b(CALC)\\b"
+        },
+        {
+          "name": "support.function.dk",
+          "match": "(?<=CALL\\s+)\\w+"
+        }
+      ]
+    },
+    "server-block": {
+      "begin": "\\bSERVER\\b",
+      "end": "(?<=\\})",
+      "beginCaptures": {
+        "0": { "name": "keyword.control.server.dk" }
+      },
+      "patterns": [
+        {
+          "include": "#comments"
+        },
+        {
+          "include": "#strings"
+        },
+        {
+          "name": "keyword.control.server.dk",
+          "match": "\\b(ROUTE|MIDDLEWARE|STATIC)\\b"
+        }
+      ]
+    }
+  }
+}
