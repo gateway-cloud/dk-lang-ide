@@ -1,7 +1,7 @@
 {
   "name": "dk-lang",
   "displayName": "DK-Lang",
-  "description": "DK-Lang (璋涘埢璇█) 鈥?AI-Optimized Programming Language support",
+  "description": "DK-Lang (谛刻语言) — AI-Optimized Programming Language support",
   "version": "1.4.0",
   "publisher": "dk-lang",
   "license": "MIT",
@@ -22,7 +22,7 @@
     "dklang",
     "deepseek",
     "ai programming",
-    "璋涘埢璇█"
+    "谛刻语言"
   ],
   "contributes": {
     "languages": [
