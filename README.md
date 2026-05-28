@@ -3,74 +3,78 @@
 [![VS Code](https://img.shields.io/badge/VS%20Code-1.60+-blue)](https://code.visualstudio.com)
 [![Version](https://img.shields.io/badge/version-1.4.0-green)](https://github.com/gateway-cloud/dk-lang)
 
-> **DK-Lang VS Code 鎵╁睍** 鈥?璇硶楂樹寒 + 浠ｇ爜鐗囨 + F5 杩愯
+> **DK-Lang VS Code 扩展** — 语法高亮 + 代码片段 + F5 运行
 
-## 鉁?鍔熻兘
+## ✨ 功能
 
-### 馃帹 璇硶楂樹寒锛? 鑹叉柟妗堬級
+### 🎨 语法高亮（8 色方案）
 
-| 鍏冪礌 | 棰滆壊 | 绀轰緥 |
+| 元素 | 颜色 | 示例 |
 |------|------|------|
-| 鍏抽敭瀛?| 馃數 `#569cd6` | `VAR` `SET` `IF` `FUNC` `SERVER` |
-| 绫诲瀷 | 馃煝 `#4ec9b0` | `int` `str` `bool` `real` |
-| 瀛楃涓?| 馃煚 `#ce9178` | `"hello"` `` `multi` `` |
-| 鏁板瓧 | 馃煝 `#b5cea8` | `42` `3.14` |
-| 娉ㄩ噴 | 馃煝 `#6a9955` | `//` `/* */` |
-| 鍑芥暟 | 馃煛 `#dcdcaa` | `main` `greet` |
-| 杩愮畻绗?| 鈿?`#d4d4d4` | `add` `sub` `gt` `eq` |
-| 鍐呯疆 | 馃煟 `#c586c0` | `CALC` `CALL func` |
+| 关键字 | 🔵 `#569cd6` | `VAR` `SET` `IF` `FUNC` `SERVER` |
+| 类型 | 🟢 `#4ec9b0` | `int` `str` `bool` `real` |
+| 字符串 | 🟠 `#ce9178` | `"hello"` `` `multi` `` |
+| 数字 | 🟢 `#b5cea8` | `42` `3.14` |
+| 注释 | 🟢 `#6a9955` | `//` `/* */` |
+| 函数 | 🟡 `#dcdcaa` | `main` `greet` |
+| 运算符 | ⚪ `#d4d4d4` | `add` `sub` `gt` `eq` |
+| 内置 | 🟣 `#c586c0` | `CALC` `CALL func` |
 
-### 馃摑 23 涓唬鐮佺墖娈?
-| 鍓嶇紑 | 鐢熸垚 |
+### 📝 23 个代码片段
+
+| 前缀 | 生成 |
 |------|------|
-| `main` | 瀹屾暣涓诲嚱鏁版ā鏉?|
-| `func` / `func0` | 甯﹀弬/鏃犲弬鍑芥暟瀹氫箟 |
-| `var` / `set` | 鍙橀噺瀹氫箟/璧嬪€?|
-| `if` / `ifelse` | 鏉′欢鍒ゆ柇 |
-| `loop` / `while` | 寰幆 |
-| `switch` | 澶氬垎鏀?|
-| `server` | HTTP 鏈嶅姟鍣ㄦā鏉?|
-| `try` | 寮傚父澶勭悊 |
-| `strjoin` | 瀛楃涓叉嫾鎺?|
+| `main` | 完整主函数模板 |
+| `func` / `func0` | 带参/无参函数定义 |
+| `var` / `set` | 变量定义/赋值 |
+| `if` / `ifelse` | 条件判断 |
+| `loop` / `while` | 循环 |
+| `switch` | 多分支 |
+| `server` | HTTP 服务器模板 |
+| `try` | 异常处理 |
+| `strjoin` | 字符串拼接 |
 
-### 鈱笍 蹇嵎閿?
-| 閿?| 鍔熻兘 |
+### ⌨️ 快捷键
+
+| 键 | 功能 |
 |----|------|
-| `F5` | 杩愯褰撳墠 .dk 鏂囦欢 |
+| `F5` | 运行当前 .dk 文件 |
 
-### 馃敡 璇█閰嶇疆
+### 🔧 语言配置
 
-- 鑷姩闂悎 `{}` `[]` `()` `""` `` ` ` ``
-- 浠ｇ爜鎶樺彔 (`// region` / `// endregion`)
-- 鑷姩缂╄繘
-- 琛屾敞閲?`//` / 鍧楁敞閲?`/* */`
+- 自动闭合 `{}` `[]` `()` `""` `` ` ` ``
+- 代码折叠 (`// region` / `// endregion`)
+- 自动缩进
+- 行注释 `//` / 块注释 `/* */`
 
 ---
 
-## 馃摝 瀹夎
+## 📦 安装
 
-### 鏂瑰紡 1锛歏SIX 瀹夎锛堟帹鑽愶級
+### 方式 1：VSIX 安装（推荐）
 
-1. 涓嬭浇 [dk-lang-1.4.0.vsix](https://github.com/gateway-cloud/dk-lang/releases/latest)
-2. VS Code 鈫?`Ctrl+Shift+P` 鈫?"Extensions: Install from VSIX..."
-3. 閫夋嫨涓嬭浇鐨?.vsix 鏂囦欢
-4. 閲嶅惎 VS Code
+1. 下载 [dk-lang-1.4.0.vsix](https://github.com/gateway-cloud/dk-lang/releases/latest)
+2. VS Code → `Ctrl+Shift+P` → "Extensions: Install from VSIX..."
+3. 选择下载的 .vsix 文件
+4. 重启 VS Code
 
-### 鏂瑰紡 2锛氫竴閿畨瑁?
+### 方式 2：一键安装
+
 ```bash
-# 杩愯瀹夎鑴氭湰
+# 运行安装脚本
 install.bat
 ```
 
-### 鏂瑰紡 3锛氭墜鍔ㄥ畨瑁?
+### 方式 3：手动安装
+
 ```bash
-# 澶嶅埗鍒?VS Code 鎵╁睍鐩綍
+# 复制到 VS Code 扩展目录
 xcopy /E /Y * "%USERPROFILE%\.vscode\extensions\dk-lang.dk-lang-1.4.0\"
 ```
 
 ---
 
-## 鈿欙笍 閰嶇疆
+## ⚙️ 配置
 
 ```json
 {
@@ -78,15 +82,16 @@ xcopy /E /Y * "%USERPROFILE%\.vscode\extensions\dk-lang.dk-lang-1.4.0\"
 }
 ```
 
-璁剧疆 DK-Lang 瑙ｉ噴鍣ㄨ矾寰勶細
-- 瀹夎鐗? `"dk"` (濡傛灉宸叉坊鍔犲埌 PATH)
-- 婧愮爜鐗? `"python C:\\path\\to\\dk_cli.py"`
+设置 DK-Lang 解释器路径：
+- 安装版: `"dk"` (如果已添加到 PATH)
+- 源码版: `"python C:\\path\\to\\dk_cli.py"`
 
 ---
 
-## 馃摳 鏁堟灉棰勮
+## 📸 效果预览
 
-鎵撳紑 `.dk` 鏂囦欢鍗冲彲鐪嬪埌璇硶楂樹寒锛?
+打开 `.dk` 文件即可看到语法高亮：
+
 ```dk
 VERSION "1.0.0" ;
 
@@ -102,15 +107,17 @@ FUNC main | str | {
 CALL main ;
 ```
 
-鎸?`F5` 杩愯 鈫?杈撳嚭 `Hello, DK-Lang!`
+按 `F5` 运行 → 输出 `Hello, DK-Lang!`
 
 ---
 
-## 馃敆 鐩稿叧
+## 🔗 相关
 
-- [dk-lang](https://github.com/gateway-cloud/dk-lang) 鈥?DK-Lang 瑙ｉ噴鍣?- [DK-LANG-SPEC.md](https://github.com/gateway-cloud/dk-lang/blob/main/DK-LANG-SPEC.md) 鈥?瀹屾暣璇█瑙勮寖
+- [dk-lang](https://github.com/gateway-cloud/dk-lang) — DK-Lang 解释器
+- [DK-LANG-SPEC.md](https://github.com/gateway-cloud/dk-lang/blob/main/DK-LANG-SPEC.md) — 完整语言规范
 
 ---
 
-## 馃搫 璁稿彲璇?
+## 📄 许可证
+
 MIT License
