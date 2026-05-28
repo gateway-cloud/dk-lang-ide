@@ -1,0 +1,101 @@
+{
+  "name": "dk-lang",
+  "displayName": "DK-Lang",
+  "description": "DK-Lang (璋涘埢璇█) 鈥?AI-Optimized Programming Language support",
+  "version": "1.4.0",
+  "publisher": "dk-lang",
+  "license": "MIT",
+  "icon": "icons/dk-icon.svg",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gateway-cloud/dk-lang"
+  },
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets"
+  ],
+  "keywords": [
+    "dk-lang",
+    "dklang",
+    "deepseek",
+    "ai programming",
+    "璋涘埢璇█"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "dk",
+        "aliases": [
+          "DK-Lang",
+          "dklang",
+          "dk"
+        ],
+        "extensions": [
+          ".dk"
+        ],
+        "icon": {
+          "light": "./icons/dk-icon.svg",
+          "dark": "./icons/dk-icon.svg"
+        },
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "dk",
+        "scopeName": "source.dk",
+        "path": "./syntaxes/dk-lang.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "dk",
+        "path": "./snippets/dk-lang.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "dk-lang.runFile",
+        "title": "DK-Lang: Run File"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "dk-lang.runFile",
+        "key": "f5",
+        "when": "editorLangId == dk"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "dk-lang.runFile",
+          "when": "editorLangId == dk",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "DK-Lang",
+      "properties": {
+        "dk-lang.interpreterPath": {
+          "type": "string",
+          "default": "dk",
+          "description": "Path to DK-Lang interpreter (dk or python dk_cli.py)"
+        }
+      }
+    }
+  },
+  "activationEvents": [
+    "onLanguage:dk"
+  ],
+  "main": "./extension.js",
+  "devDependencies": {
+    "@types/vscode": "^1.120.0",
+    "@vscode/vsce": "^2.32.0",
+    "typescript": "^5.9.3"
+  }
+}
