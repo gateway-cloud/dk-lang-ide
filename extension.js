@@ -1,5 +1,4 @@
 const vscode = require('vscode');
-const cp = require('child_process');
 const path = require('path');
 
 function activate(context) {
@@ -14,13 +13,15 @@ function activate(context) {
 
         const config = vscode.workspace.getConfiguration('dk-lang');
         const interpreter = config.get('interpreterPath') || 'dk';
-        const cmd = `"${interpreter}" run "${filePath}"`;
 
         let terminal = vscode.window.terminals.find(t => t.name === terminalName);
         if (!terminal) terminal = vscode.window.createTerminal(terminalName);
         terminal.show();
-        terminal.sendText('cls');
-        terminal.sendText(cmd);
+
+        // PowerShell 兼容：不带引号的命令名 + 带引号的文件路径
+        // Windows 路径含空格需双引号包裹
+        terminal.sendText(`cls`);
+        terminal.sendText(`${interpreter} run "${filePath}"`);
     });
 
     context.subscriptions.push(runFile);
